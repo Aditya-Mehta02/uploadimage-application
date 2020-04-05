@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Image Display</title>
+    <style>
+      #img1 {margin: 50px; height: 300px}
+      #img2 {height: 300px}
+    </style>
+  </head>
+  <body>
+    {% extends "template.html" %}
+    {% block content %}
+
+    <img id="img1" src="{{processedimg_filename}}">
+    <img id="img2" src="{{img_filename}}">
+    {% endblock %}
+  </body>
+</html>

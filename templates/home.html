@@ -2,14 +2,40 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Flask Tutorial</title>
+    <title>Mountain Goat Molt Project</title>
+  <style>
+    .goatText{
+    float:left;
+    width: 72%;
+    padding-left: 50px;
+    padding-right: 20px;
+    }
+    .goatImage{
+    float:left;
+    width: 26%;
+    }
+    .styledFont{
+    font-size: 20px;
+    font-family: serif;
+    }
+  </style>
   </head>
   <body>
     {% extends "template.html" %}
     {% block content %}
+    <div id="container">
+        <div id="text" class="goatText">
+             <p class="styledFont">     Imagine that you have put your winter coat away early and can't find it during a sudden onset of spring frost or that you cannot take that insulated coat off in the first place and overheat. </p>
 
-    <h1> My First Try Using Flask </h1>
-    <p> Flask is Fun </p>
+             <p class="styledFont">     We are collecting photographs of mountain goats across time and space to evaluate their winter coat shedding in relation to climate change. Photographs can be from anywhere across mountain goat range, native or introduced, and older photographs scanned from slides or film are especially welcome. Accurate and precise date and location information are crucial. </p>
+             <p> </p>
+             <p> </p>
+
+        </div>
+        <div id="image" class="goatImage">
+             <img src="../../static/Uploads/Icon.png" width="300" align="center" style="padding: 2px"/>
+        </div>
+    <p>  </p>
     
     {% endblock %}
   </body>

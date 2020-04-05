@@ -2,17 +2,27 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>About Flask</title>
+    <title>About The Project</title>
+    <style>
+      .goatText{
+      float:left;
+      padding-left: 50px;
+      padding-right: 50px;
+      }
+      .styledFont{
+      font-size: 20px;
+      font-family: serif;
+      }
+    </style>
   </head>
   <body>
     {% extends "template.html" %}
     {% block content %}
-
-    <h1> About Flask </h1>
-    <p> Flask is a micro web framework written in Python.</p>
-    <p> Applications that use the Flask framework include Pinterest,
-      LinkedIn, and the community web page for Flask itself.</p>
-
+    <div id="container" class="goatText">
+      <h3> The machine learning process begins with the training. This starts with the preparation of the training data. </h3>
+      <p class="styledFont"> First, raw images are sourced from citizen science/iNaturalist and are then hand-notated into segmented images using Adobe Photoshop. We proceed by converting hand notated images into Pascal VOC format. To do this, a python program was implemented to resize the image and convert the image to Pascal VOC format. This program resized the image to 512 maximum pixels while maintaining the aspect ratio to speed up the training time. Then it looked at the color value of each pixel and replaced it with a palette used in Pascal VOC images. There are 256 colors in the palette, and each color represents its own segmentation class. The program transforms the white on the hand-segmented images to black for the background. Red on hand-segmented images becomes green for fur and black on hand-segmented images becomes red for the molted area. This quantizes the image to have three colors for three classes and eliminates any shades of colors in any of the pixels and consolidates them to a single predominant color value. Additionally, we looked at the contours with a pixel width of 2 to determine edges and color them white. At the end of the process, the resulting images are translated from background being white to black, the fur being red to green, the molt being black to red, and white contours are added. These images then become the ground truth images for training. We then use TensorFlow under Models/Research/DeepLab to use DeepLab which implements Image Segmentation. DeepLab is set up to use the training data similar to Pascal VOC input. This includes jpeg images, the ground truth images, and the dataset information to identify training and validation images. We initialize DeepLab with a pre-trained inception model. Because of our palette for the Pascal VOC images, we change the class count for training from 256 to 3. Afterward, the model is trained with 20000 iterations on the new mountain goat image dataset. After the training, the model is ready to use for prediction. The model is used to predict the molt segmentation on training as well as untested images. We use an intersection over union test (IOU) to compare the accuracy of our results. </p>
+      <p> </p>
+    </div>
     {% endblock %}
   </body>
 </html>
